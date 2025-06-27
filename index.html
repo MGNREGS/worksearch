@@ -13,18 +13,28 @@
             color: #e0e0e0; /* Light gray for text */
         }
         .header-container {
-            display: flex; /* Use flexbox to align image and heading */
+            display: flex; /* Use flexbox for main alignment */
             align-items: center; /* Vertically center the items */
-            gap: 15px; /* Space between the image and the heading */
+            justify-content: space-between; /* Pushes content to the extreme left and right */
             margin-bottom: 20px; /* Space below the header section */
         }
-        .header-container img {
+        .header-left {
+            display: flex; /* Flexbox for logo and h1 */
+            align-items: center; /* Vertically center logo and h1 */
+            gap: 15px; /* Space between the image and the heading */
+        }
+        .header-left img {
             height: 50px; /* Adjust height as needed for the logo */
             width: auto; /* Maintain aspect ratio */
         }
         h1 {
-            color: #cc6633; /* A vibrant purple for the heading */
-            margin: 0; /* Remove default margin from h1 to align with flexbox */
+            color: #33cc99; /* A vibrant purple for the heading */
+            margin: 0; /* Remove default margin from h1 for flexbox alignment */
+        }
+        .devised-by {
+            font-size: 0.9em; /* Slightly smaller text for attribution */
+            color: #33cc99; /* A softer gray for the attribution text #a0a0a0*/
+            white-space: nowrap; /* Prevent text from wrapping */
         }
         input[type="text"] {
             width: 100%;
@@ -73,8 +83,13 @@
 <body>
 
     <div class="header-container">
-        <img src="https://th.bing.com/th/id/OIP.20KIQtVoAmPBfOPX9Wm1wQHaKU?r=0&rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" alt="Ashok Chakra Logo">
-        <h1>Start typing to find Permissible MGNREGA Work details...</h1>
+        <div class="header-left">
+            <img src="https://th.bing.com/th/id/OIP.20KIQtVoAmPBfOPX9Wm1wQHaKU?r=0&rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" alt="Ashok Chakra Logo">
+            <h1>Start typing to find Permissible MGNREGA Work details...</h1>
+        </div>
+        <div class="devised-by">
+            Devised by Dhrubajyoti Sarmah
+        </div>
     </div>
 
     <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for words or phrases...">
