@@ -5,36 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Searchable Permissible Work List devised by Dhrubajyoti Sarmah</title>
     <style>
-        /* Dark Mode Styles */
+        /* Base Styles (Dark Mode) */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #121212; /* Very dark gray for background */
             color: #e0e0e0; /* Light gray for text */
+            line-height: 1.6; /* Improve readability */
         }
         .header-container {
-            display: flex; /* Use flexbox for main alignment */
-            align-items: center; /* Vertically center the items */
-            justify-content: space-between; /* Pushes content to the extreme left and right */
-            margin-bottom: 20px; /* Space below the header section */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 10px; /* Space between wrapped items */
         }
         .header-left {
-            display: flex; /* Flexbox for logo and h1 */
-            align-items: center; /* Vertically center logo and h1 */
-            gap: 15px; /* Space between the image and the heading */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-grow: 1; /* Allow left header to grow */
         }
         .header-left img {
-            height: 50px; /* Adjust height as needed for the logo */
-            width: auto; /* Maintain aspect ratio */
+            height: 40px; /* Slightly smaller logo for mobile */
+            width: auto;
         }
         h1 {
-            color: #33cc99; /* A vibrant purple for the heading */
-            margin: 0; /* Remove default margin from h1 for flexbox alignment */
+            color: #33cc99;
+            margin: 0;
+            font-size: 1.5em; /* Adjust heading size for better mobile fit */
+            flex-grow: 1; /* Allow h1 to grow */
         }
         .devised-by {
-            font-size: 0.9em; /* Slightly smaller text for attribution */
-            color: #33cc99; /* A softer gray for the attribution text #a0a0a0*/
-            white-space: nowrap; /* Prevent text from wrapping */
+            font-size: 0.8em; /* Smaller text for attribution */
+            color: #33cc99;
+            white-space: nowrap;
+            text-align: right; /* Align to right if it wraps */
         }
         input[type="text"] {
             width: 100%;
@@ -42,25 +49,27 @@
             margin-bottom: 20px;
             box-sizing: border-box;
             font-size: 16px;
-            background-color: #2c2c2c; /* Darker gray for input background */
-            color: #e0e0e0; /* Light text in input */
-            border: 1px solid #444; /* Subtle border */
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            border-radius: 5px; /* Slightly rounded corners for input */
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            display: none; /* Initially hide the entire table */
-            background-color: #1e1e1e; /* Slightly lighter dark gray for table background */
+            display: none;
+            background-color: #1e1e1e;
         }
         th, td {
-            border: 1px solid #3a3a3a; /* Darker border for cells */
+            border: 1px solid #3a3a3a;
             padding: 8px;
             text-align: left;
         }
         th {
-            background-color: #333333; /* Darker background for table headers */
-            color: #ffffff; /* White text for headers */
+            background-color: #333333;
+            color: #ffffff;
             cursor: pointer;
+            white-space: nowrap; /* Prevent header text from wrapping */
         }
         /* Hide all table body rows by default */
         #dataTable tbody tr {
@@ -68,15 +77,78 @@
         }
         /* Style for alternating rows (optional, but good for readability in dark mode) */
         #dataTable tbody tr:nth-child(even) {
-            background-color: #252525; /* Slightly different shade for even rows */
+            background-color: #252525;
         }
         #dataTable tbody tr:nth-child(odd) {
-            background-color: #1e1e1e; /* Base background for odd rows */
+            background-color: #1e1e1e;
         }
-
         /* Show rows that have the 'visible-row' class */
         #dataTable tbody tr.visible-row {
             display: table-row;
+        }
+
+        /* --- Mobile Specific Styles (using Media Queries) --- */
+        @media screen and (max-width: 768px) {
+            body {
+                margin: 10px; /* Reduce margin on smaller screens */
+            }
+            .header-container {
+                flex-direction: column; /* Stack header items vertically */
+                align-items: flex-start; /* Align stacked items to the start */
+            }
+            .header-left {
+                width: 100%; /* Make logo and h1 take full width */
+                margin-bottom: 10px;
+            }
+            .devised-by {
+                width: 100%; /* Make attribution take full width */
+                text-align: left; /* Align to left when stacked */
+                margin-top: 5px;
+            }
+
+            /* Table Reflow for Mobile */
+            table, thead, tbody, th, td, tr {
+                display: block; /* Make all table elements behave like block elements */
+            }
+
+            thead tr {
+                position: absolute; /* Hide the original table header visually */
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #444;
+                margin-bottom: 10px; /* Add space between "cards" */
+                border-radius: 8px;
+                overflow: hidden; /* Ensure rounded corners apply */
+            }
+
+            td {
+                border: none; /* Remove individual cell borders */
+                border-bottom: 1px solid #3a3a3a; /* Add bottom border for separation */
+                position: relative;
+                padding-left: 50%; /* Make space for the pseudo-element label */
+                text-align: right; /* Align content to the right */
+                white-space: normal; /* Allow text to wrap within the "cell" */
+            }
+
+            td:last-child {
+                border-bottom: none; /* No border for the last "cell" in a row */
+            }
+
+            /* Add labels to each "cell" using pseudo-elements */
+            td::before {
+                content: attr(data-label); /* Use data-label attribute for the label */
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #999; /* Lighter color for labels */
+            }
         }
     </style>
 </head>
@@ -2518,7 +2590,8 @@
             // Show or hide the table based on whether there's a search query
             if (filter.length > 0) {
                 table.style.display = "table"; // Show the table
-                headerRow.style.display = "table-row"; // Show the header row
+                // For mobile, we hide the header row using CSS, so no need to show/hide it directly in JS.
+                // headerRow.style.display = "table-row"; // This line will be overridden by CSS on mobile
             } else {
                 table.style.display = "none"; // Hide the table if search bar is empty
             }
