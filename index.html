@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searchable Permissible Work List (Dark Mode)</title>
+    <style>
+        /* Dark Mode Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212; /* Very dark gray for background */
+            color: #e0e0e0; /* Light gray for text */
+        }
+        .header-container {
+            display: flex; /* Use flexbox to align image and heading */
+            align-items: center; /* Vertically center the items */
+            gap: 15px; /* Space between the image and the heading */
+            margin-bottom: 20px; /* Space below the header section */
+        }
+        .header-container img {
+            height: 50px; /* Adjust height as needed for the logo */
+            width: auto; /* Maintain aspect ratio */
+        }
+        h1 {
+            color: #bb86fc; /* A vibrant purple for the heading */
+            margin: 0; /* Remove default margin from h1 to align with flexbox */
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #2c2c2c; /* Darker gray for input background */
+            color: #e0e0e0; /* Light text in input */
+            border: 1px solid #444; /* Subtle border */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            display: none; /* Initially hide the entire table */
+            background-color: #1e1e1e; /* Slightly lighter dark gray for table background */
+        }
+        th, td {
+            border: 1px solid #3a3a3a; /* Darker border for cells */
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #333333; /* Darker background for table headers */
+            color: #ffffff; /* White text for headers */
+            cursor: pointer;
+        }
+        /* Hide all table body rows by default */
+        #dataTable tbody tr {
+            display: none;
+        }
+        /* Style for alternating rows (optional, but good for readability in dark mode) */
+        #dataTable tbody tr:nth-child(even) {
+            background-color: #252525; /* Slightly different shade for even rows */
+        }
+        #dataTable tbody tr:nth-child(odd) {
+            background-color: #1e1e1e; /* Base background for odd rows */
+        }
+
+        /* Show rows that have the 'visible-row' class */
+        #dataTable tbody tr.visible-row {
+            display: table-row;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <img src="https://th.bing.com/th/id/OIP.20KIQtVoAmPBfOPX9Wm1wQHaKU?r=0&rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" alt="Ashok Chakra Logo">
+        <h1>Permissible Works under Mahatma Gandhi NREGA</h1>
+    </div>
+
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for words or phrases...">
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Master Category (4)</th>
+                <th>Major Scheduled Category (24)</th>
+                <th>Work Type (39)</th>
+                <th>Permissible Works (266)</th>
+                <th>Nature of Work</th>
+                <th>Beneficiary Type</th>
+            </tr>
+        </thead>
+        <tbody>
+<tr>
+    <td>1</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Afforestation of wasteland Forestry trees for individual</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Individual</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Afforestation using forestry Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Block Plantation of Farm Forestry Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Block Plantation of Forestry Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Block Plantation of Horticulture Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Line Plantation of Coastal Shelter Belt Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>7</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Line Plantation of Forestry Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>8</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Along the coast Line Plantation of Horticulture Trees for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>9</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>Plantation</td>
+    <td>Block Plantation of Biodrainage Trees in fields for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+<tr>
+    <td>10</td>
+    <td>Category A</td>
+    <td>Afforestation</td>
+    <td>plantation</td>
+    <td>Block Plantation of Biodrainage Trees in Government building premises for Community</td>
+    <td>Agri & Agri-Allied + NRM</td>
+    <td>Community</td>
+</tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        function filterTable() {
+            var input, filter, table, tr, i, j, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("dataTable");
+            tr = table.getElementsByTagName("tr");
+            var headerRow = table.querySelector("thead tr");
+            var resultsFound = false;
+
+            // Show or hide the table based on whether there's a search query
+            if (filter.length > 0) {
+                table.style.display = "table"; // Show the table
+                headerRow.style.display = "table-row"; // Show the header row
+            } else {
+                table.style.display = "none"; // Hide the table if search bar is empty
+            }
+
+            // Loop through all table rows (starting from 1 to skip the header)
+            for (i = 1; i < tr.length; i++) {
+                // By default, hide the row
+                tr[i].classList.remove("visible-row"); // Remove class to hide
+
+                let rowMatches = false;
+                // Loop through all cells in the current row
+                for (j = 0; j < tr[i].cells.length; j++) {
+                    let td = tr[i].cells[j];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            rowMatches = true;
+                            resultsFound = true;
+                            break; // No need to check other cells in this row if one matches
+                        }
+                    }
+                }
+                if (rowMatches) {
+                    tr[i].classList.add("visible-row"); // Add class to show
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
